@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        min-height: 300vh;
+        background: red;
+      }
+    </style>
+  </head>
+  <script>
+    let docScroll;
+
+    const getPageYScroll = () => {
+      docScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      console.log(docScroll);
+      console.log(setVal());
+      document.querySelector(
+        "#testz"
+      ).style.transform = `scale3d(${setVal()},${setVal()},1)`;
+    };
+    window.addEventListener("scroll", getPageYScroll);
+
+    let winsize;
+    const calcWinsize = () =>
+      (winsize = { width: window.innerWidth, height: window.innerHeight });
+    calcWinsize();
+    // and recalculate on resize
+    window.addEventListener("resize", calcWinsize);
+
+    const setVal = () => {
+      const MathUtils = {
+        // map number x from range [a, b] to [c, d]
+        map: (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c,
+        // linear interpolation
+        lerp: (a, b, n) => (1 - n) * a + n * b,
+        // Random float
+        getRandomFloat: (min, max) =>
+          (Math.random() * (max - min) + min).toFixed(2),
+      };
+
+      const toValue = 1.5;
+      const fromValue = 1;
+      const val = MathUtils.map(
+        document.querySelector("#testz").getBoundingClientRect().top +
+          docScroll -
+          docScroll,
+        winsize.height,
+        -1 * document.querySelector("#testz").getBoundingClientRect().height,
+        fromValue,
+        toValue
+      );
+      return Math.max(Math.min(val, toValue), fromValue);
+    };
+  </script>
+  <body>
+    <div
+      id="testz"
+      style="
+        width: 800px;
+        height: 400px;
+        background: blue;
+        background-image: url(img/17.jpg);
+      "
+    ></div>
+  </body>
+</html>
