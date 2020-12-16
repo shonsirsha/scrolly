@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rellax</title>
+  </head>
+  <body style="padding: 128px; min-height: 300vh">
+    <div style="display: flex; width: 100%; justify-content: space-between">
+      <div class="rellax" style=" background: purple; width: 300px; height:
+      300px; margin-top: 400px" data-rellax-speed="7"> I’m super fast!!
+    </div>
+    <div class="rellax" data-rellax-speed="-4" style="
+    background: yellow;
+    width: 300px;
+    height: 300px;
+    margin-top: 400px">
+      I’m extra slow and smooth
+      <!-- <div
+        style="
+          background: purple;
+          width: 300px;
+          height: 300px;
+          margin-top: 400px;
+        "
+        class="rellax"
+        data-rellax-speed="7"
+      >
+        >
+      </div>
+      <div
+        style="
+          background: yellow;
+          width: 300px;
+          height: 300px;
+          margin-top: 400px;
+        "
+        class="rellax"
+        data-rellax-speed="3"
+      ></div> -->
+    </div>
+  
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    crossorigin="anonymous"
+  ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"
+      integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        var rellax = new Rellax('.rellax');
+        </script>
+  </body>
+</html>
